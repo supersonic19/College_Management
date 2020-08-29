@@ -13,10 +13,16 @@ class Teacher(models.Model):
     subject = models.CharField(max_length=100)
     gender = models.BooleanField()
 
+    def __str__(self):
+        return self.t_name
+
 class Course(models.Model):
     c_name = models.CharField(max_length=100)
     c_id = models.CharField
     teacher = models.ForeignKey('Teacher' , on_delete = models.CASCADE)
+
+        def __str__(self):
+            return self.c_name
 
 class Student(models.Model):
     s_name = models.CharField(max_length = 256)
